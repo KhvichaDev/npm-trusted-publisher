@@ -1,0 +1,39 @@
+{
+  "name": "npm-trusted-publisher",
+  "version": "1.0.0",
+  "description": "A drop-in GitHub Actions workflow for automated npm publishing with Trusted Publishing. Copy the workflow file into your project to enable secure, provenance-backed releases from GitHub to npm.",
+  "main": "index.js",
+  "bin": {
+    "npm-trusted-publisher": "./bin/cli.js"
+  },
+  "keywords": [
+    "npm",
+    "publish",
+    "trusted-publishing",
+    "github-actions",
+    "workflow",
+    "ci-cd",
+    "automation",
+    "provenance",
+    "release",
+    "npm-publish",
+    "oidc",
+    "semver",
+    "changelog",
+    "continuous-delivery",
+    "drop-in"
+  ],
+  "author": "KhvichaDev",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KhvichaDev/npm-trusted-publisher"
+  },
+  "homepage": "https://github.com/KhvichaDev/npm-trusted-publisher#readme",
+  "bugs": {
+    "url": "https://github.com/KhvichaDev/npm-trusted-publisher/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
