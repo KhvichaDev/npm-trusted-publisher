@@ -2,7 +2,10 @@
   "name": "npm-trusted-publisher",
   "version": "1.0.0",
   "description": "A drop-in GitHub Actions workflow for automated npm publishing with Trusted Publishing. Copy the workflow file into your project to enable secure, provenance-backed releases from GitHub to npm.",
-  "main": "index.js",
+  "files": [
+    "bin",
+    "templates"
+  ],
   "bin": {
     "npm-trusted-publisher": "./bin/cli.js"
   },
