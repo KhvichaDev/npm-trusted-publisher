@@ -24,9 +24,7 @@ Because this workflow uses secure Trusted Publishing, every package you release 
 - Teams that prioritize supply chain security and want the official npm verification badge.
 
 > ⚠️ **Note on Private Packages:**
-> 
 > npm Provenance is currently only supported for public packages published from **public repositories**. 
-> 
 > Because of this limitation, this workflow enforces `--access public` and is **not intended for private npm packages**.
 
 ## ✨ Key Features
