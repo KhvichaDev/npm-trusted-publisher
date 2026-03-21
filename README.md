@@ -4,9 +4,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Download Workflow](https://img.shields.io/badge/Download-Workflow-blue.svg)](https://github.com/KhvichaDev/npm-trusted-publisher/releases/latest/download/npm-publish.yml)
 
-> Secure, automated npm publishing using OIDC — without managing tokens.
->
-> Includes a zero-config CLI to set up everything in seconds.
+**Secure, automated npm publishing using OIDC — without managing tokens.**<br>
+Includes a zero-config CLI to set up everything in seconds.
 
 [![npm Trusted Publisher Overview](https://raw.githubusercontent.com/KhvichaDev/npm-trusted-publisher/main/open-graph-image.png)](https://www.youtube.com/watch?v=2VLG6IHJTos)
 
