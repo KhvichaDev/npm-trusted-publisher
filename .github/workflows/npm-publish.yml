@@ -1,0 +1,122 @@
+# FILE PATH: .github/workflows/npm-publish.yml
+# This workflow automates the npm publishing process via GitHub Actions.
+# It requires "Trusted Publishing" to be configured on npmjs.com for the target repository.
+# SECURITY WARNING: Do NOT add 'pull_request' to the triggers. This workflow must only run on authorized releases.
+# NAMING CONVENTION: Release tags must strictly follow the 'v1.x.x' semantic versioning standard (e.g., v1.0.0).
+
+name: Publish to npm
+
+on:
+  release:
+    types: [published]
+  workflow_call:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      # Required for pushing version/build changes back to the repo. Scoped to release-only triggers, not PRs.
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.event.release.target_commitish }}
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          
+      - name: Install dependencies
+        # Fallback to 'npm install' is intentional for lightweight projects that may not include a package-lock.json.
+        run: |
+          if [ -f package-lock.json ]; then
+            echo "Lockfile found, running npm ci"
+            npm ci
+          else
+            echo "No lockfile found, running npm install"
+            npm install
+          fi
+        
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Sync version with Release Tag
+        run: |
+          VERSION=${GITHUB_REF_NAME#v}
+          npm version $VERSION --no-git-tag-version --allow-same-version
+          
+      - name: Update CHANGELOG.md (if present)
+        env:
+          RELEASE_BODY: ${{ github.event.release.body }}
+          RELEASE_NAME: ${{ github.event.release.name }}
+          TAG_NAME: ${{ github.ref_name }}
+        run: |
+          if [ -f CHANGELOG.md ]; then
+            DATE=$(date +'%Y-%m-%d')
+            {
+              echo "## [$TAG_NAME] - $DATE - $RELEASE_NAME"
+              echo ""
+              echo "$RELEASE_BODY"
+              echo ""
+              cat CHANGELOG.md
+            } > temp_changelog.md
+            mv temp_changelog.md CHANGELOG.md
+          fi
+          
+      - name: Run tests (if present)
+        run: npm run test --if-present
+        
+      - name: Build project (if present)
+        run: npm run build --if-present
+
+      - name: Commit and Push build files to GitHub
+        env:
+          TARGET_BRANCH: ${{ github.event.release.target_commitish }}
+          TAG_NAME: ${{ github.ref_name }}
+        run: |
+          VERSION=${GITHUB_REF_NAME#v}
+          git add package.json
+          if [ -f CHANGELOG.md ]; then git add CHANGELOG.md; fi
+          # Safe on CI: runners are clean, isolated environments with no local secrets.
+          # Wildcard is used intentionally for universality across different build output paths (dist/, build/, etc.).
+          git add . --ignore-errors
+
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "chore: update version to $VERSION, changelog, and assets [skip ci]"
+            git push origin HEAD:"$TARGET_BRANCH"
+            # Force-update is required so the tag points to the new commit that includes version bump and build artifacts.
+            git tag -f "$TAG_NAME"
+            git push origin "$TAG_NAME" --force
+          fi
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.target_commitish }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            echo "Lockfile found, running npm ci"
+            npm ci
+          else
+            echo "No lockfile found, running npm install"
+            npm install
+          fi
+          
+      - name: Publish package to npm
+        run: npm publish --provenance --access public
