@@ -1,13 +1,11 @@
 # npm Trusted Publisher 🚀
 
-[![npm version](https://img.shields.io/npm/v/npm-trusted-publisher)](https://www.npmjs.com/package/npm-trusted-publisher)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Download Workflow](https://img.shields.io/badge/Download-Workflow-blue.svg)](https://github.com/KhvichaDev/npm-trusted-publisher/releases/latest/download/npm-publish.yml)
-
 **Secure, automated npm publishing using OIDC — without managing tokens.**<br>
 Includes a zero-config CLI to set up everything in seconds.
 
 [![npm Trusted Publisher Overview](https://raw.githubusercontent.com/KhvichaDev/npm-trusted-publisher/main/open-graph-image.png)](https://www.youtube.com/watch?v=2VLG6IHJTos)
+
+[![npm version](https://img.shields.io/npm/v/npm-trusted-publisher?style=for-the-badge)](https://www.npmjs.com/package/npm-trusted-publisher) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT) [![Download Workflow](https://img.shields.io/badge/Download-Workflow-blue.svg?style=for-the-badge)](https://github.com/KhvichaDev/npm-trusted-publisher/releases/latest/download/npm-publish.yml) [![Changelog](https://img.shields.io/badge/Changelog-34A853?style=for-the-badge&logo=keepachangelog&logoColor=white)](https://github.com/KhvichaDev/npm-trusted-publisher/releases) [![Support](https://img.shields.io/badge/Support-EA4335?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KhvichaDev/npm-trusted-publisher/issues)
 
 ## 🌟 What is this?
 
