@@ -2,11 +2,13 @@
 
 [![npm version](https://img.shields.io/npm/v/npm-trusted-publisher)](https://www.npmjs.com/package/npm-trusted-publisher)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Download Workflow](https://img.shields.io/badge/Download-Workflow-blue.svg)](https://github.com/KhvichaDev/npm-trusted-publisher/raw/main/templates/npm-publish.yml)
+[![Download Workflow](https://img.shields.io/badge/Download-Workflow-blue.svg)](https://github.com/KhvichaDev/npm-trusted-publisher/releases/latest/download/npm-publish.yml)
 
 > Secure, automated npm publishing using OIDC — without managing tokens.
 >
 > Includes a zero-config CLI to set up everything in seconds.
+
+[![npm Trusted Publisher Overview](https://raw.githubusercontent.com/KhvichaDev/npm-trusted-publisher/main/open-graph-image.png)](https://www.youtube.com/watch?v=2VLG6IHJTos)
 
 ## 🌟 What is this?
 
@@ -160,9 +162,9 @@ jobs:
 
 #### Method 3: Direct Download 💾
 
-[![Download Workflow](https://img.shields.io/badge/⬇️_Download-npm--publish.yml-blue.svg?style=for-the-badge)](https://github.com/KhvichaDev/npm-trusted-publisher/raw/main/templates/npm-publish.yml)
+[![Download Workflow](https://img.shields.io/badge/⬇️_Download-npm--publish.yml-blue.svg?style=for-the-badge)](https://github.com/KhvichaDev/npm-trusted-publisher/releases/latest/download/npm-publish.yml)
 
-1. Click the button above to download the `npm-publish.yml` file.
+1. Download the `npm-publish.yml` file.
 2. Place it into your project at exactly: `.github/workflows/`
 
 *(Alternatively, create a file named `npm-publish.yml` in that directory and manually paste the contents).*
