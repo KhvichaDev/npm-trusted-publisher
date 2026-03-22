@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v2.0.2] - 2026-03-22 - v2.0.2 - Smart Changelog Formatting
+
+### 🐛 Bug Fixes
+- **Changelog Formatting & Insertion Logic**: Resolved a structural issue where new release logs were being incorrectly prepended at the absolute top of the [CHANGELOG.md](cci:7://file:///c:/Users/mylaptop.ge/Downloads/npm-trusted-publisher/npm-trusted-publisher-1.0.1/CHANGELOG.md:0:0-0:0) file (above the primary `# Changelog` header). 
+- **Intelligent Parsing**: Implemented a dynamic Node.js-based scanner inside the workflow. It now intelligently locates the first historical release tag (`## [`) and safely injects new release entries exactly above it. This seamlessly preserves any custom headers, introductions, or the standard "Keep a Changelog" formatting without breaking the document's structure.
+
+
 ## [v2.0.1] - 2026-03-22 - v2.0.1 Bug Fixes
 
 ### 🐛 Bug Fixes
