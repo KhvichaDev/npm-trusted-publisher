@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v2.0.1] - 2026-03-22 - v2.0.1 Bug Fixes
+
+### 🐛 Bug Fixes
+- **Missing Changelog Resolution**: Fixed an issue where the generated [CHANGELOG.md](cci:7://file:///c:/Users/mylaptop.ge/Downloads/npm-trusted-publisher/npm-trusted-publisher-1.0.1/CHANGELOG.md:0:0-0:0) file was silently being ignored by npm during publication. Explicitly appended `"CHANGELOG.md"` to the `files` array deep inside [package.json](cci:7://file:///c:/Users/mylaptop.ge/Downloads/npm-trusted-publisher/npm-trusted-publisher-1.0.1/package.json:0:0-0:0) to guarantee its persistent inclusion in the final downloaded package.
+
+
 ## [v2.0.0] - 2026-03-22 - Significant improvement
 
 ### ✨ Enhancements & Smart Features
