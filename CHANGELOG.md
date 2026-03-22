@@ -1,3 +1,17 @@
+## [v2.0.0] - 2026-03-22 - 
+
+### ✨ Enhancements & Smart Features
+- **Smart Changelog Generation (Zero-Config)**: The publishing workflow now intelligently handles your [CHANGELOG.md](cci:7://file:///c:/Users/mylaptop.ge/Downloads/npm-trusted-publisher/npm-trusted-publisher-1.0.1/CHANGELOG.md:0:0-0:0) file:
+  - **Auto-Creation**: If a project doesn't have a [CHANGELOG.md](cci:7://file:///c:/Users/mylaptop.ge/Downloads/npm-trusted-publisher/npm-trusted-publisher-1.0.1/CHANGELOG.md:0:0-0:0) file, the workflow will now automatically generate a standard-compliant one from scratch during the first release setup.
+  - **Duplicate Prevention**: Implemented a bulletproof Regex implementation (`grep -qE "^## \[$TAG_NAME\]"`) that detects existing release tags in the changelog. If you manually authored the release entry or triggered a workflow re-run, it intelligently skips insertion to prevent duplicate records.
+- **Branded Workflow Identity**: Renamed the core workflow template from the generic [npm-publish.yml](cci:7://file:///c:/Users/mylaptop.ge/Downloads/npm-trusted-publisher/npm-trusted-publisher-1.0.1/templates/npm-publish.yml:0:0-0:0) to [kd-npm-publish.yml](cci:7://file:///c:/Users/mylaptop.ge/Downloads/npm-trusted-publisher/npm-trusted-publisher-1.0.1/templates/kd-npm-publish.yml:0:0-0:0) to establish a unique identity and completely prevent naming conflicts in developer repositories. The CLI generator (`npx npm-trusted-publisher init`) has been fully re-routed to use this branded template.
+- **Polished Documentation**: Overhauled the [README.md](cci:7://file:///c:/Users/mylaptop.ge/Downloads/npm-trusted-publisher/npm-trusted-publisher-1.0.1/README.md:0:0-0:0) intro section for better readability. Emphasized the total elimination of `NPM_TOKEN` secrets and highlighted the "zero-config CLI" to immediately demonstrate the tool's core value proposition.
+- **Improved npm Metadata**: Updated the [package.json](cci:7://file:///c:/Users/mylaptop.ge/Downloads/npm-trusted-publisher/npm-trusted-publisher-1.0.1/package.json:0:0-0:0) description with stronger keywords (e.g., "provenance-backed releases") for better SEO and discoverability directly on the npm registry.
+
+### 📝 Documentation & Legal
+- **Independence Disclaimer**: Included a clear disclaimer in the README footer to explicitly state the project's independence and lack of affiliation with npm, Inc.
+
+
 ## [v1.0.1] - 2026-03-21 - v1.0.1 - First Functional Release 🚀
 
 🎉 Welcome to the first fully functional release of **npm-trusted-publisher**!
