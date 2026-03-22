@@ -59,14 +59,20 @@ jobs:
             if grep -qE "^## \[$TAG_NAME\]" CHANGELOG.md; then
               echo "Changelog entry for $TAG_NAME already exists. Skipping update."
             else
-              {
-                echo "## [$TAG_NAME] - $DATE - $RELEASE_NAME"
-                echo ""
-                echo "$RELEASE_BODY"
-                echo ""
-                cat CHANGELOG.md
-              } > temp_changelog.md
-              mv temp_changelog.md CHANGELOG.md
+              export DATE
+              node -e "
+                const fs = require('fs');
+                const env = process.env;
+                const newEntry = '## [' + env.TAG_NAME + '] - ' + env.DATE + ' - ' + env.RELEASE_NAME + '\n\n' + env.RELEASE_BODY + '\n\n';
+                let content = fs.readFileSync('CHANGELOG.md', 'utf8');
+                const insertIndex = content.indexOf('## [');
+                if (insertIndex !== -1) {
+                  content = content.slice(0, insertIndex) + newEntry + content.slice(insertIndex);
+                } else {
+                  content = newEntry + content;
+                }
+                fs.writeFileSync('CHANGELOG.md', content);
+              "
             fi
           else
             echo "CHANGELOG.md not found. Creating a new one."
