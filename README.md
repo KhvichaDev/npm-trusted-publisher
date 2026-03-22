@@ -2,9 +2,7 @@
 
 > A lightweight CLI helper for npm Trusted Publishing workflows.
 
-**Forget about NPM_TOKEN secrets. Start publishing securely in seconds.**<br>
-A drop-in **kd-npm-publish.yml** workflow that automates your npm releases using OIDC — no tokens, no manual setup.<br>
-Includes a zero-config CLI to get started instantly.
+**Forget about `NPM_TOKEN` secrets. Start publishing securely in seconds.** A drop-in **kd-npm-publish.yml** workflow that automates your npm releases using OIDC — **no tokens, no manual setup.** Includes a zero-config CLI to get started instantly.
 
 [![npm Trusted Publisher Overview](https://raw.githubusercontent.com/KhvichaDev/npm-trusted-publisher/main/open-graph-image.png)](https://www.youtube.com/watch?v=2VLG6IHJTos)
 
