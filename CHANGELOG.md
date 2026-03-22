@@ -32,4 +32,4 @@ This CLI tool automates the setup of a secure, secretless npm publishing workflo
 
 ### 📖 Getting Started
 
-Check out the complete setup guide and available methods in the [README](#).
+Check out the complete setup guide and available methods in the [README](./README.md).
