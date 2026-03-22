@@ -31,8 +31,8 @@ if (!fs.existsSync(path.join(cwd, '.git'))) {
 console.log('✅ Project setup validates correctly.');
 
 const targetDir = path.join(cwd, '.github', 'workflows');
-const targetFile = path.join(targetDir, 'npm-publish.yml');
-const sourceFile = path.join(__dirname, '..', 'templates', 'npm-publish.yml');
+const targetFile = path.join(targetDir, 'kd-npm-publish.yml');
+const sourceFile = path.join(__dirname, '..', 'templates', 'kd-npm-publish.yml');
 
 if (!fs.existsSync(sourceFile)) {
   console.error('\n❌ Error: Template workflow file not found in the package.\n');
@@ -43,7 +43,7 @@ fs.mkdirSync(targetDir, { recursive: true });
 
 try {
   fs.copyFileSync(sourceFile, targetFile);
-  console.log('\n✅ Successfully created: .github/workflows/npm-publish.yml\n');
+  console.log('\n✅ Successfully created: .github/workflows/kd-npm-publish.yml\n');
   console.log('Next steps:');
   console.log('  1. Configure Trusted Publishing on npmjs.com');
   console.log('  2. Create a GitHub Release with a v1.x.x tag');
