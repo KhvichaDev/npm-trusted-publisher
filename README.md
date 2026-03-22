@@ -1,20 +1,23 @@
 # npm Trusted Publisher 🚀
 
-**Secure, automated npm publishing using OIDC — without managing tokens.**<br>
-Includes a zero-config CLI to set up everything in seconds.
+> A lightweight CLI helper for npm Trusted Publishing workflows.
+
+**Forget about NPM_TOKEN secrets. Start publishing securely in seconds.**<br>
+A drop-in **kd-npm-publish.yml** workflow that automates your npm releases using OIDC — no tokens, no manual setup.<br>
+Includes a zero-config CLI to get started instantly.
 
 [![npm Trusted Publisher Overview](https://raw.githubusercontent.com/KhvichaDev/npm-trusted-publisher/main/open-graph-image.png)](https://www.youtube.com/watch?v=2VLG6IHJTos)
 
-[![npm version](https://img.shields.io/npm/v/npm-trusted-publisher?style=for-the-badge)](https://www.npmjs.com/package/npm-trusted-publisher) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://github.com/KhvichaDev/npm-trusted-publisher/blob/main/LICENSE) [![Download Workflow](https://img.shields.io/badge/Download_Workflow-4285F4?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/KhvichaDev/npm-trusted-publisher/releases/latest/download/npm-publish.yml) [![Changelog](https://img.shields.io/badge/Changelog-34A853?style=for-the-badge&logo=keepachangelog&logoColor=white)](https://github.com/KhvichaDev/npm-trusted-publisher/releases) [![Support](https://img.shields.io/badge/Support-EA4335?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KhvichaDev/npm-trusted-publisher/issues)
+[![npm version](https://img.shields.io/npm/v/npm-trusted-publisher?style=for-the-badge)](https://www.npmjs.com/package/npm-trusted-publisher) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://github.com/KhvichaDev/npm-trusted-publisher/blob/main/LICENSE) [![Download Workflow](https://img.shields.io/badge/Download_Workflow-4285F4?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/KhvichaDev/npm-trusted-publisher/releases/latest/download/kd-npm-publish.yml) [![Changelog](https://img.shields.io/badge/Changelog-34A853?style=for-the-badge&logo=keepachangelog&logoColor=white)](https://github.com/KhvichaDev/npm-trusted-publisher/releases) [![Support](https://img.shields.io/badge/Support-EA4335?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KhvichaDev/npm-trusted-publisher/issues)
 
 ## 🌟 What is this?
 
-**npm Trusted Publisher** is a tool designed to drastically simplify and automate the process of publishing packages to npm. 
+**npm Trusted Publisher** is an open-source helper tool designed to drastically simplify and automate the process of publishing packages to npm. 
 
 It generates a production-ready GitHub Actions workflow that utilizes npm's native **Trusted Publishing** feature. This means your CI/CD pipeline authenticates with npm securely using short-lived OIDC tokens, completely eliminating the need to generate, store, or rotate classic `NPM_TOKEN` secrets in your repository.
 
 ### 🏅 The npm Verification Badge (Provenance)
-Because this workflow uses secure Trusted Publishing, every package you release will automatically receive the **Official npm Provenance Badge** on `npmjs.com`. This verification badge proves to your users exactly which GitHub repository and specific commit the package was built from, ensuring maximum trust and transparency.
+Because this workflow uses secure Trusted Publishing, every package you release will automatically receive the **npm Provenance badge** (provided by npm) on `npmjs.com`. This verification badge proves to your users exactly which GitHub repository and specific commit the package was built from, ensuring maximum trust and transparency.
 
 ## 👤 Who is this for?
 
@@ -106,7 +109,7 @@ Go to your package settings on [npmjs.com](https://www.npmjs.com/) and configure
 
 - **Provider:** GitHub Actions
 - **Repository:** `YourUsername/YourRepo`
-- **Workflow Name:** `npm-publish.yml`
+- **Workflow Name:** `kd-npm-publish.yml`
 
 ### 2. Update package.json
 
@@ -140,7 +143,7 @@ This single command will automatically:
 
 If you manage multiple npm packages across different repositories, keeping duplicated publishing workflows up-to-date is a nightmare. By calling a **reusable workflow**, you maintain a single source of truth. Whenever the core publishing logic is improved, all your repos inherit it automatically without needing multiple PRs.
 
-Create a minimal `.github/workflows/npm-publish.yml` in your target repo and point it to the central action:
+Create a minimal `.github/workflows/kd-npm-publish.yml` in your target repo and point it to the central action:
 
 ```yaml
 name: Publish to npm
@@ -151,7 +154,7 @@ on:
 
 jobs:
   publish:
-    uses: KhvichaDev/npm-trusted-publisher/.github/workflows/npm-publish.yml@main
+    uses: KhvichaDev/npm-trusted-publisher/.github/workflows/kd-npm-publish.yml@main
     permissions:
       contents: write
       id-token: write
@@ -159,12 +162,12 @@ jobs:
 
 #### Method 3: Direct Download 💾
 
-[![Download Workflow](https://img.shields.io/badge/⬇️_Download-npm--publish.yml-blue.svg?style=for-the-badge)](https://github.com/KhvichaDev/npm-trusted-publisher/releases/latest/download/npm-publish.yml)
+[![Download Workflow](https://img.shields.io/badge/⬇️_Download-kd--npm--publish.yml-blue.svg?style=for-the-badge)](https://github.com/KhvichaDev/npm-trusted-publisher/releases/latest/download/kd-npm-publish.yml)
 
-1. Download the `npm-publish.yml` file.
+1. Download the `kd-npm-publish.yml` file.
 2. Place it into your project at exactly: `.github/workflows/`
 
-*(Alternatively, create a file named `npm-publish.yml` in that directory and manually paste the contents).*
+*(Alternatively, create a file named `kd-npm-publish.yml` in that directory and manually paste the contents).*
 
 ### 4. Release!
 
@@ -193,4 +196,4 @@ This workflow and its documentation are released under the [MIT License](LICENSE
 
 ---
 
-Built with ❤️ for the open-source community by **[KhvichaDev](https://khvichadev.com)**.
+Crafted with ❤️ for the open-source community by **[KhvichaDev](https://khvichadev.com)** — not affiliated with npm, Inc.
