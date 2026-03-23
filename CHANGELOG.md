@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v2.1.0] - 2026-03-23 - 🔔 New Feature: Update Notifier
+
+### 🔔 Update Notifier (Version Checker)
+
+- **Automatic Version Check**: Added a `Check for updates` step to the publishing workflow. On every release, it queries the npm registry and compares the installed version against the latest available. If a newer version exists, a visible ⚠️ GitHub Warning annotation is displayed directly in the workflow summary.
+
+### ⚙️ Improvements
+
+- **CLI Template Engine**: Replaced `copyFileSync` in the CLI with a read-replace-write pipeline. The `__NPM_TP_VERSION__` placeholder in the workflow template is now automatically replaced with the actual package version at `init` time — ensuring the update notifier always has an accurate baseline.
+- **Self-Updating Version Stamp**: For reusable workflow (`workflow_call`) users, the version embedded in the workflow file is automatically updated via `sed` during each release. No manual version management is ever required.
+- **Method-Aware Messaging**: The update notification displays contextually appropriate instructions depending on the integration method:
+  - **Method 1** (`npx init`): Suggests re-running `npx npm-trusted-publisher@latest init`
+  - **Method 2** (`workflow_call`): Suggests updating the `uses:` reference to the latest tag
+
+
 ## [v2.0.2] - 2026-03-22 - v2.0.2 - Smart Changelog Formatting
 
 ### 🐛 Bug Fixes
