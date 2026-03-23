@@ -26,6 +26,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
+
+      - name: Check for updates
+        run: |
+          CURRENT_VERSION=$(node -p "require('./package.json').version")
+          LATEST_VERSION=$(npm view npm-trusted-publisher version 2>/dev/null || echo "unknown")
+          if [ "$LATEST_VERSION" != "unknown" ] && [ "$LATEST_VERSION" != "$CURRENT_VERSION" ]; then
+            echo "::warning::npm-trusted-publisher v$LATEST_VERSION is available (current: v$CURRENT_VERSION). Run 'npx npm-trusted-publisher@latest init' to update your workflow."
+          fi
           
       - name: Install dependencies
         # Fallback to 'npm install' is intentional for lightweight projects that may not include a package-lock.json.
