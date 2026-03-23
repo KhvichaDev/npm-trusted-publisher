@@ -17,6 +17,8 @@ jobs:
     permissions:
       # Required for pushing version/build changes back to the repo. Scoped to release-only triggers, not PRs.
       contents: write
+      # Required for the Stamp step to push workflow file updates back to the repo.
+      workflows: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -102,14 +104,6 @@ jobs:
       - name: Build project (if present)
         run: npm run build --if-present
 
-
-      - name: Debug - list workflow files
-        if: github.repository == 'KhvichaDev/npm-trusted-publisher'
-        run: |
-          echo "Current directory: $(pwd)"
-          echo "GITHUB_REF_NAME: $GITHUB_REF_NAME"
-          echo "target_commitish: ${{ github.event.release.target_commitish }}"
-          ls -la .github/workflows/ || echo "No .github/workflows/ directory found"
 
       - name: Stamp workflow version
         if: github.repository == 'KhvichaDev/npm-trusted-publisher'
