@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v2.1.1] - 2026-03-23 - ✨ Enhancements
+
+General performance improvements and codebase cleanup.
+
 ## [v2.1.0] - 2026-03-23 - 🔔 New Feature: Update Notifier
 
 ### 🔔 Update Notifier (Version Checker)
