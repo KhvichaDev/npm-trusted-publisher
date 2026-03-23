@@ -103,7 +103,7 @@ jobs:
         run: npm run build --if-present
 
       - name: Stamp workflow version
-        if: github.event_name == 'release'
+        if: github.repository == 'KhvichaDev/npm-trusted-publisher'
         # Automatically embeds the current release version into the reusable workflow file
         # so the update notifier can accurately compare against the latest registry version.
         run: |
