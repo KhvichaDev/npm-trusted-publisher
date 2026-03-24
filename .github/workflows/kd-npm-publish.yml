@@ -140,6 +140,7 @@ jobs:
           fi
 
       - name: Upload Release Asset
+        if: github.repository == 'KhvichaDev/npm-trusted-publisher'
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}
           TAG_NAME: ${{ github.ref_name }}
