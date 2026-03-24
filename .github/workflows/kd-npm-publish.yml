@@ -37,7 +37,7 @@ jobs:
 
       - name: Check for updates
         run: |
-          CURRENT_VERSION="2.2.1"
+          CURRENT_VERSION="1.0.0"
           LATEST_VERSION=$(npm view npm-trusted-publisher version 2>/dev/null || echo "unknown")
           if [ "$LATEST_VERSION" != "unknown" ] && [ "$LATEST_VERSION" != "$CURRENT_VERSION" ]; then
             echo "::warning::npm-trusted-publisher v$LATEST_VERSION is available (current: v$CURRENT_VERSION). Update your workflow reference to: uses: KhvichaDev/npm-trusted-publisher/.github/workflows/kd-npm-publish.yml@v$LATEST_VERSION"
@@ -132,7 +132,7 @@ jobs:
           git add . --ignore-errors
 
           if [ -n "$(git status --porcelain)" ]; then
-            git commit -m "chore: update version to $VERSION, changelog, and assets [skip ci]"
+            git commit -m "v$VERSION [skip ci]"
             git push origin HEAD:"$TARGET_BRANCH"
             # Force-update is required so the tag points to the new commit that includes version bump and build artifacts.
             git tag -f "$TAG_NAME"
