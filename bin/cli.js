@@ -42,11 +42,7 @@ if (!fs.existsSync(sourceFile)) {
 fs.mkdirSync(targetDir, { recursive: true });
 
 try {
-  /** Read the package version to inject into the workflow template for the update notifier */
-  const pkgVersion = require(path.join(__dirname, '..', 'package.json')).version;
-  const template = fs.readFileSync(sourceFile, 'utf8');
-  const output = template.replace(/__NPM_TP_VERSION__/g, pkgVersion);
-  fs.writeFileSync(targetFile, output);
+  fs.copyFileSync(sourceFile, targetFile);
   console.log('\n✅ Successfully created: .github/workflows/kd-npm-publish.yml\n');
   console.log('Next steps:');
   console.log('  1. Configure Trusted Publishing on npmjs.com');
