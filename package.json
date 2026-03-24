@@ -1,6 +1,6 @@
 {
   "name": "npm-trusted-publisher",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "A zero-config CLI tool and GitHub Actions workflow for secure, automated npm publishing. Replaces NPM_TOKEN with OIDC, automatically syncs versions, updates changelogs, commits build artifacts, and enables provenance-backed releases.",
   "files": [
     "bin",
