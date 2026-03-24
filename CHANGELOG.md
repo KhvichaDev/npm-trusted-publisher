@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v2.2.2] - 2026-03-24 - Repository History Optimization
+
+### ⚙️ Improvements
+* **Streamlined Commit Messages**: Optimized the automated version-stamping commit format to a concise `v$VERSION [skip ci]` style. This provides a cleaner and more professional-looking repository history while maintaining pipeline efficiency.
+* **CI/CD Silence**: Ensured the `[skip ci]` directive is preserved in the new format to prevent redundant workflow triggers and maintain optimal resource usage.
+
 ## [v2.2.1] - 2026-03-24 - Universal Compatibility & Context-Aware Execution
 
 ### 🐛 Bug Fixes & Stability
