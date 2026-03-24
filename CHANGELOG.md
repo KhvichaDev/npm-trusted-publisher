@@ -4,8 +4,6 @@ All notable changes to this project will be documented in this file.
 
 ## [v2.2.1] - 2026-03-24 - Universal Compatibility & Context-Aware Execution
 
-## [v2.2.1] - 2026-03-24 - Universal Compatibility & Context-Aware Execution
-
 ### 🐛 Bug Fixes & Stability
 * **Conditional Checkout Logic**: Resolved the "Input required and not supplied: token" error for external users. The workflow now intelligently detects its environment and uses `GH_PAT` only within the source repository, falling back to standard authentication elsewhere.
 * **Asset Upload Isolation**: Fixed a failure in the "Upload Release Asset" step. This administrative task is now strictly restricted to the core `npm-trusted-publisher` repository, ensuring smooth execution for all downstream consumers.
