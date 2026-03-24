@@ -28,7 +28,7 @@ jobs:
 
       - name: Check for updates
         run: |
-          CURRENT_VERSION="1.2.0"
+          CURRENT_VERSION="2.2.0"
           LATEST_VERSION=$(npm view npm-trusted-publisher version 2>/dev/null || echo "unknown")
           if [ "$LATEST_VERSION" != "unknown" ] && [ "$LATEST_VERSION" != "$CURRENT_VERSION" ]; then
             echo "::warning::npm-trusted-publisher v$LATEST_VERSION is available (current: v$CURRENT_VERSION). Run 'npx npm-trusted-publisher@latest init' to update your workflow."

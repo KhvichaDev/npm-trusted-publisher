@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v2.2.0] - 2026-03-24 - Automated Assets & Architecture Simplification
+
+### ✨ Enhancements & Automation
+- **Automated Release Assets**: The publishing workflow now automatically version-stamps and attaches the `kd-npm-publish.yml` template directly to the GitHub Release as a downloadable asset. Manual file uploading are no longer required.
+- **Out-of-the-Box Functionality for Manual Downloads**: The `templates/kd-npm-publish.yml` file in the repository is now dynamically updated with the exact release version during the CI/CD pipeline. Developers who choose the "Direct Download" method will always receive a fully functional file with accurate update notification logic, completely eliminating unresolved placeholders.
+
+### ⚙️ Architecture & Refactoring
+- **Simplified CLI Engine**: Deprecated the `__NPM_TP_VERSION__` placeholder and read-replace logic in the CLI. The `npx npm-trusted-publisher init` command now utilizes a streamlined, zero-overhead direct file copy (`fs.copyFileSync`). The pipeline itself now acts as the single source of truth for injecting versions.
+- **Workflow Stamping Expansion**: The CI pipeline's stamping step has been expanded to simultaneously update versions across both the primary reusable workflow and the distributable template prior to deployment.
+
 ## [v2.1.1] - 2026-03-23 - ✨ Enhancements
 
 General performance improvements and codebase cleanup.
